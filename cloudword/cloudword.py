@@ -4,10 +4,14 @@ import pymysql, json, time, re, pickle, os, collections
 import jieba #用windows跑的时候请在读文件的时候加上encoding参数并修改jieba库的使用
 jieba.initialize()
 filtrate = re.compile(u'[^\u4e00-\u9fa5A-Za-z]+')
-MAX_FREQ=50
+DBPATH="localhost"
+USER="root"
+PWD="123456"
+DB="test"
 MAX_NUM=10000
+MAX_FREQ=50
 PATH=os.path.dirname(__file__)+"/total.pickle"
-conn = pymysql.connect("localhost", "root", "123456", "test")
+conn = pymysql.connect(DBPATH, USER, PWD, DB)
 curs = conn.cursor()
 curs.execute("SELECT DISTINCT LE_ID FROM c4c_bank_statement")
 result = curs.fetchall()

@@ -1,7 +1,7 @@
 from requests import put, get, post
 from flask import Flask, request, jsonify, redirect, url_for, request, render_template
 from flask_restful import reqparse, abort, Api, Resource
-import os, json
+import json
 from load import diction
 
 app = Flask(__name__)
